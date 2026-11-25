@@ -1,1 +1,2 @@
-/** Módulo Config: implementação pendente. */
+function obterConfiguracao(chave,def){const r=lerTabela('Configurações').find(x=>x.Chave===chave);return r?r.Valor:def;}
+function salvarConfiguracao(chave,valor,descricao){const r=lerTabela('Configurações').find(x=>x.Chave===chave);if(r)atualizarRegistro('Configurações','Chave',chave,{Chave:chave,Valor:valor,Descrição:descricao||r.Descrição});else adicionarRegistro('Configurações',{Chave:chave,Valor:valor,Descrição:descricao||''});}
