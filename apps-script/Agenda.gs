@@ -1,0 +1,1 @@
+/** Módulo Agenda: implementação pendente. */

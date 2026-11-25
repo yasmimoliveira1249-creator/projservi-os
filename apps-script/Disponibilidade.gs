@@ -1,0 +1,1 @@
+/** Módulo Disponibilidade: implementação pendente. */

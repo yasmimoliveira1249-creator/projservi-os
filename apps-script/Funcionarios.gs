@@ -1,0 +1,1 @@
+/** Módulo Funcionarios: implementação pendente. */
