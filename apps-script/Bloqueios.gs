@@ -1,1 +1,3 @@
-/** Módulo Bloqueios: implementação pendente. */
+function cadastrarBloqueio(d){if(!d['Data inicial']||!d['Data final'])throw Error('Informe as datas.');if(normalizarData(d['Data final'])<normalizarData(d['Data inicial']))throw Error('Período de datas inválido.');d['ID Bloqueio']=gerarId('BLQ');d.Status='Ativo';return adicionarRegistro('Bloqueios',d);}
+function listarBloqueios(){return lerTabela('Bloqueios').filter(x=>x.Status!=='Inativo');}
+function existeBloqueio(funcId,data,ini,fim){const dt=normalizarData(data);return listarBloqueios().some(b=>{const start=normalizarData(b['Data inicial']),end=normalizarData(b['Data final']);if(dt<start||dt>end)return false;if(b['ID Funcionário (vazio=todos)']&&String(b['ID Funcionário (vazio=todos)'])!==String(funcId))return false;if(!b['Hora inicial']||!b['Hora final'])return true;return ini<horarioMinutos(b['Hora final'])&&fim>horarioMinutos(b['Hora inicial']);});}
