@@ -1,2 +1,1 @@
-function instalarSistema() { prepararAbas(); configurarMenu(); SpreadsheetApp.getUi().alert('Estrutura inicial preparada.'); }
-function onOpen() { configurarMenu(); }
+function instalarSistema(){prepararAbas();configurarStatusPadrao();configurarMenu();SpreadsheetApp.getUi().alert('Sistema instalado na planilha.');}function onOpen(){configurarMenu();}function abrirPainel(){SpreadsheetApp.getUi().showModalDialog(HtmlService.createHtmlOutputFromFile('Painel').setWidth(900).setHeight(650),'Agenda');}function inicializarDadosPainel(){return {clientes:listarClientes(),funcionarios:listarFuncionarios(),servicos:listarServicos(),agenda:listarAgendamentos(new Date()),status:listarStatus()};}
