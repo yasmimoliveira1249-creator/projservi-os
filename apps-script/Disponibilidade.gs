@@ -1,1 +1,2 @@
-/** Módulo Disponibilidade: implementação pendente. */
+function salvarDisponibilidade(d){if(!d['Hora inicial']||!d['Hora final'])throw Error('Informe o intervalo.');if(horarioMinutos(d['Hora final'])<=horarioMinutos(d['Hora inicial']))throw Error('Horário final deve ser posterior.');d.ID=d.ID||gerarId('DIS');d.Status='Ativo';return adicionarRegistro('Disponibilidade',d);}
+function disponibilidadeDia(funcId,dia){return lerTabela('Disponibilidade').filter(x=>x.Status!=='Inativo'&&(String(x['ID Funcionário (vazio=geral)'])===String(funcId)||!x['ID Funcionário (vazio=geral)'])&&Number(x['Dia da semana'])===Number(dia));}
